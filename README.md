@@ -4,7 +4,7 @@
 ![Project planning](readme_imgs/C3320255-2AC2-4C17-80F8-908280389771.jpg)
 
 # Models ERD:
-![Models](readme_imgs/IMG_7637.jpg)
+![Models](readme_imgs/model_img.jpg)
 
 # User Stories
 ![User Stories](readme_imgs/IMG_7638.jpg)
