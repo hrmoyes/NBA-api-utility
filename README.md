@@ -17,4 +17,4 @@
 
 # API's, NPM Packages, and RESTful Route Guide
 
-![APIs](readme_imgs/IMG_7644.jpg)
+![APIs](readme_imgs/apis.jpg)
