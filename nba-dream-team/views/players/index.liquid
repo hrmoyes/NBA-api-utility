@@ -1,0 +1,53 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+
+<div>
+  <h2 class="display-6">All Players</h2>
+  <div class="row">
+  
+      {% for player in players %}
+          <div class="card" style="width: 18rem">
+              <h5 class="card-header">{{player.firstName}} {{player.lastName}}</h5>
+              <div class="card-body">
+                  <h6 class="card-title">
+                    {% if player.position == "F" %}
+                      Position: Power Forward
+                    {% elsif player.position == "C" %}
+                      Position: Center
+                    {% elsif player.position == "G" %}
+                      Position: Guard
+                    {% elsif player.position == "C-F" %}
+                      Position: Power Forward / Center
+                    {% elsif player.position == "F-C" %}
+                      Position: Small Forward / Center
+                    {% elsif player.position == "G-F" %}
+                      Position: Small Forward / Shooting Guard
+                    {% else %}
+                    No Position Listed
+                    {% endif %}
+                  </h6>
+                  
+                  <p class="card-text">
+                    {% if player.height != 0 %}
+                    Height: {{player.height}} inches
+                    {% else %}
+                    No Height Listed
+                    {% endif %}
+                  </p>
+                  <p class="card-text">
+                    {% if player.weight %}
+                    Weight: {{player.weight}} pounds
+                    {% else %}
+                    No Weight Listed
+                    {% endif %}
+                  </p>
+                  
+                  <a href="/nba/players/{{player._id}}" class="btn btn-info">View {{player.firstName}}</a>
+              </div>
+          </div>
+      {% endfor %}
+  </div>
+</div>
+      
+{% endblock %}

@@ -76,7 +76,7 @@ const Player = require('../models/player')
 // })
 
 // GET - Index
-// localhost:3000/fruits
+// localhost:3000/nba
 router.get('/', (req, res) => {
     // mongoose to find all fruits
     Player.find({})
@@ -89,6 +89,35 @@ router.get('/', (req, res) => {
             res.json(err)
         })
 })
+
+// GET - Index
+// localhost:3000/nba/players
+router.get('/players', (req, res) => {
+    // mongoose to find all players
+    Player.find({})
+    // return fruits as json
+        .then(players => {
+            // res.json(fruit)
+            res.render('players/index', { players })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+
+
+
+//GET - Show
+// localhost:3000/nba/players/:id
+router.get('/players/:id', (req, res) => {
+    const playerId = req.params.id
+
+    Player.findById(playerId)
+        .then(player => {
+            res.render('players/show', { player })
+        })
+})
+
 
 // router.get('/mine', (req, res) => {
 //     // find the fruits associated with the logged in user
