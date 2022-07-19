@@ -1,0 +1,30 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+
+<div class="container-md">
+    <form action="/users/login" method="POST">
+        <fieldset>
+            <legend>User Login</legend>
+            <label class="form-label">Username:</label>
+            <input 
+                type="text" 
+                name="username" 
+                class="form-control"
+            >
+            <label class="form-label">Password:</label>
+            <input 
+                type="password" 
+                name="password" 
+                class="form-control"
+            >
+        </fieldset>
+        <input 
+            type="submit"
+            value="Log In" 
+            class="btn btn-success"
+        >
+    </form>
+    <h6>Don't have an existing account? Create a new account <a href="/users/signup">here</a>.</h6>
+</div>
+
+{% endblock %}

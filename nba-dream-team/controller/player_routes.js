@@ -118,7 +118,15 @@ router.get('/players/:id', (req, res) => {
         })
 })
 
-
+router.get('/players/search/:playername', (req, res) => {
+    console.log(document.getElementById('playerName'))
+    console.log(req.params.playername)
+    const {playername} = req.params
+    Player.find({firstName: playername})
+        .then(player => {
+            res.render('players/search', {player})
+        })
+})
 // router.get('/mine', (req, res) => {
 //     // find the fruits associated with the logged in user
 //     Fruit.find({ owner: req.session.userId })
