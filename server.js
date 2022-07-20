@@ -9,7 +9,7 @@ const methodOverride = require('method-override')
 const playerRoutes = require('./controller/player_routes')
 const userRoutes = require('./controller/user_routes')
 const teamRoutes = require('./controller/team_routes')
-const urlHeroku = 'mongodb+srv://hrmoyes:password54@nba-dream-team.kknbmr5.mongodb.net/?retryWrites=true&w=majority'
+
 ////////////////////////////////////////////
 // Create our express application object
 ////////////////////////////////////////////
@@ -34,8 +34,9 @@ app.use(
 	session({
 		// secret: process.env.SECRET,
 		store: MongoStore.create({
-			mongoUrl: urlHeroku,
+			mongoUrl: process.env.MONGODB_URI,
 			secret: 'epicSecretDrewThompson',
+			touchAfter: 24 * 60 * 60
 		}),
 		saveUninitialized: true,
 		resave: false
