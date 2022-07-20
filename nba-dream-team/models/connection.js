@@ -4,7 +4,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 
 
-const DATABASE_URI = process.env.DATABASE_URI
+const DATABASE_URI = process.env.MONGODB_URI
 const config = {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -17,7 +17,7 @@ mongoose.connection
 // handle the opening of the connections
 // running code block on open
 // console.logging a string
-    .on('open', () => console.log('Connected to Mongoose'))
+    .on('open', () => console.log(`Mongoose connected to ${mongoose.connection.host}:${mongoose.connection.port}`))
     // since we have opened a connection we've got to close it
     // running a code block on close
     .on('close', () => console.log('Disconnected from Mongoose'))
