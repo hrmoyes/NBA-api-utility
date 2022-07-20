@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 // bring in our session middleware
 const session = require('express-session')
-const MongoStore = require('connect-mongo').default
+const MongoStore = require('connect-mongo')(session)
 
 // here's the middleware that sets up our sessions
 app.use(
