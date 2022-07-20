@@ -33,7 +33,9 @@ app.use(
 	session({
 		secret: process.env.SECRET,
 		store: MongoStore.create({
-			mongoUrl: process.env.MONGODB_URI
+			mongoUrl: process.env.MONGODB_URI,
+			secret: 'epicSecretDrewThompson',
+			touchAfter: 24 * 60 * 60
 		}),
 		saveUninitialized: true,
 		resave: false
