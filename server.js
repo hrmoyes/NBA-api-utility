@@ -26,12 +26,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 // bring in our session middleware
 const session = require('express-session')
-const MongoStore = require('connect-mongo')
+const MongoStore = require('connect-mongo').default
 
 // here's the middleware that sets up our sessions
 app.use(
 	session({
-		secret: process.env.SECRET,
+		// secret: process.env.SECRET,
 		store: MongoStore.create({
 			mongoUrl: process.env.MONGODB_URI,
 			secret: 'epicSecretDrewThompson',
