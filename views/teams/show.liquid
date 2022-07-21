@@ -1,0 +1,18 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<div class="container-md">
+    <article>
+
+        <h3>Team Name: {{team.name}} {{team.mascot}}</h3>
+        <h4>Player Roster: {{team.players}}</h4>
+        <!-- <div class="btn-group">
+
+            <a href="/fruits/{{fruit._id}}/edit" class="btn btn-primary">Edit Fruit</a>
+            <form action="/fruits/{{fruit._id}}?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>-->
+        </article>
+
+</div>
+{% endblock %}

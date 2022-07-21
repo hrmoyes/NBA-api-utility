@@ -4,7 +4,8 @@
 <div class="container-md">
     <article>
 
-        <h3>Name: {{player.firstName}} {{player.lastName}}</h3>
+        <h3>Name: <span id="searchterm">{{player.firstName}} {{player.lastName}}</span></h3>
+        <img id="playerGif" src="">
         <h6>{% if player.height != 0 %}
             Height: {{player.height}} inches
             {% else %}
@@ -29,7 +30,10 @@
             Position: Small Forward / Shooting Guard
           {% else %}
             No Position Listed
-          {% endif %}</h6>
+            <br>
+            {% endif %}</h6>
+            <h5>Current Team: n/a</h5>
+            <a href="/nba/players/add/{{player._id}}">Add to myTeams</a>
         <!-- <div class="btn-group">
 
             <a href="/fruits/{{fruit._id}}/edit" class="btn btn-primary">Edit Fruit</a>
@@ -37,25 +41,24 @@
                 <input type="submit" value="Delete" class="btn btn-danger">
             </form>-->
         </article>
-    <!-- </div> -->
-    <!-- <div class="col-md-6">
-        <form action="/comments/{{fruit._id}}" method="POST">
-            <fieldset>
-                <legend>Add comment</legend>
-                <label class="form-label">Comment: </label>
-                <input type="text" class="form-control" name="note" placeholder="Enter comment here"/>
-            </fieldset>
-            <input type="submit" class="btn btn-success" value="Add comment" />
-        </form>
-    </div>
-    {% if fruit.comments.length > 0 %}
-    <div class="container-sm justify-content-center">
-        <div class="col-md-8 col-lg-6" >
-            {% for comment in fruit.comments %}
-            {% render '../comment.liquid' comment: comment, userId: userId, fruit: fruit, username: username%}
-            {% endfor %}
-        </div> 
-    </div> -->
-    <!-- {% endif %} -->
+
 </div>
+<script>
+const playerGifSearch = document.getElementById("searchterm").innerText.replace(/\s+/g, '-')
+console.log(playerGifSearch)
+const apiKey = 'kpkoaVg3FutHqBObiGAGppcYp45AqUqi'
+fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${playerGifSearch}`)
+  .then(response => response.json())
+  .then(json => {
+    json.data
+      console.log(json.data[0].images.original.url)
+      let srcUrl = json.data[0].images.original.url
+      let img = document.getElementById('playerGif')
+      img.src = srcUrl
+      // document.body.appenchild(img)
+      
+  })
+  .catch(error => document.body.appendChild = error)
+
+</script>
 {% endblock %}

@@ -20,6 +20,7 @@ mongoose.connection
     .on('open', () => console.log(`Mongoose connected to ${mongoose.connection.host}:${mongoose.connection.port}`))
     // since we have opened a connection we've got to close it
     // running a code block on close
+    // close 
     .on('close', () => console.log('Disconnected from Mongoose'))
     // handle any error that might happen
     // running a code block on error

@@ -4,57 +4,37 @@
 <!-- <script src="search.js" defer></script> -->
 
 <div>
-  <h2 class="display-6">All Players</h2>
+  <h2 class="display-6">Created Teams</h2>
   <!-- <form action="/nba/players/search/:playerName" method="GET">
     <input type="text" name="playerName" id="playerName" placeholder="Player Name">
     <input type="submit" value="Search"> -->
   <div class="search-wrapper">
-    <label for="search">Search Players</label>
+    <label for="search">Search myTeams</label>
     <input type="search" id="search" data-search>
   </div>
 
   </form>
+  <a href="/nba/new">create new team</a>
   <div class="row player-cards" data-player-cards-container>
   
-      {% for player in players %}
+      {% for team in teams %}
       <!-- <div data-player-template> -->
         <div class="card player-card" style="width: 18rem">
-          <h5 class="card-header" data-player-name>{{player.firstName}} {{player.lastName}}</h5>
+          <h5 class="card-header" data-player-name>Team: {{team.name}}</h5>
           <div class="card-body">
               <h6 class="card-title">
-                {% if player.position == "F" %}
-                  Position: Power Forward
-                {% elsif player.position == "C" %}
-                  Position: Center
-                {% elsif player.position == "G" %}
-                  Position: Guard
-                {% elsif player.position == "C-F" %}
-                  Position: Power Forward / Center
-                {% elsif player.position == "F-C" %}
-                  Position: Small Forward / Center
-                {% elsif player.position == "G-F" %}
-                  Position: Small Forward / Shooting Guard
-                {% else %}
-                No Position Listed
-                {% endif %}
+                Mascot: {{team.mascot}}
               </h6>
               
               <p class="card-text">
-                {% if player.height != 0 %}
-                Height: {{player.height}} inches
+                {% if team.players != '' %}
+                Players: {{team.players}}
                 {% else %}
-                No Height Listed
-                {% endif %}
-              </p>
-              <p class="card-text">
-                {% if player.weight %}
-                Weight: {{player.weight}} pounds
-                {% else %}
-                No Weight Listed
+                No Players added to roster
                 {% endif %}
               </p>
               
-              <a href="/nba/players/{{player._id}}" class="btn btn-info">View {{player.firstName}}</a>
+              <a href="/nba/myTeams/{{team._id}}" class="btn btn-info team-btn">View the {{team.mascot}}</a>
           </div>
       </div>
     <!-- </div> -->

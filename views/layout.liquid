@@ -14,19 +14,20 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
-            <a href="/nba" class="navbar-brand">NBA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <a href="/nba/myTeams" class="nav-link text-light">myTeams----</a>
-                <a href="/nba/players" class="nav-link text-light">View all players----</a>
-                <a href="/users/signup" class="nav-link text-light">Sign Up----</a>
-                <a href="/users/login" class="nav-link text-light">Log In----</a>
-                <a href="/users/logout" class="nav-link text-light">Log Out----</a>
+                <a href="/nba/myTeams" class="nav-link text-light">myTeams</a>
+                <a href="/nba/players" class="nav-link text-light">View all players</a>
+                <a href="/nba" class="navbar-brand"><img src="https://assets.fontsinuse.com/static/use-media-items/76/75563/full-1920x1080/5bc2b2b6/social_share_default.png" alt="NBA" height="100px"></a>
+                <a href="/users/signup" class="nav-link text-light">Sign Up</a>
+                <a href="/users/login" class="nav-link text-light">Log In</a>
+                <a href="/users/logout" class="nav-link text-light">Log Out</a>
             </div>
         </div>
     </nav>
+    
     <main class="container-md">
         {% block content %}
         my content

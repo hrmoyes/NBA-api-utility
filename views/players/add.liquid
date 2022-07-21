@@ -1,0 +1,35 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+<div class="container-md">
+    <article>
+
+        <h3>Name: {{player.firstName}} {{player.lastName}}</h3>
+        <form action="/nba/players/{{player._id}}?_method=PUT" method="POST">
+            <fieldset>
+                <legend>Add {{player.firstName}} {{player.lastName}} to a team:</legend>
+                {% for team in teams %}
+                <label class="form-label">{{team.name}}</label>
+                <input type="checkbox" name="joinTeam{{team.name}}" class="form-check-input">
+                {% endfor %}
+            </fieldset>
+
+            <div class="btn-group">
+                <input type="submit" value="Add to teams" class="btn btn-success">
+            </div>
+
+        </form>
+    
+   
+            <h5>Current Team: n/a</h5>
+            <a href="/nba/players/{{player._id}}">Go back</a>
+        <!-- <div class="btn-group">
+
+            <a href="/fruits/{{fruit._id}}/edit" class="btn btn-primary">Edit Fruit</a>
+            <form action="/fruits/{{fruit._id}}?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>-->
+        </article>
+
+</div>
+{% endblock %}
