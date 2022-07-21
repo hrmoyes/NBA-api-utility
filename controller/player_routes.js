@@ -180,48 +180,6 @@ router.post('/', (req, res) => {
             res.json(err)
         })
 })
-// router.get('/mine', (req, res) => {
-//     // find the fruits associated with the logged in user
-//     Fruit.find({ owner: req.session.userId })
-//         .then(fruits => {
-//             res.render('fruits/index', { fruits })
-//         })
-//         .catch(error => {
-//             console.log(error)
-//             res.json({ error })
-//         })
-// })
-
-// seed route --> has been moved to models/seed.js
-// insert many items into our database with just going to this route
-// localhost:3000/fruits/seed
-// router.get('/seed', (req, res) => {
-//     // starting data
-//     const startFruits = [
-//     { name: "Orange", color: "orange", readyToEat: false },
-//     { name: "Grape", color: "purple", readyToEat: false },
-//     { name: "Banana", color: "orange", readyToEat: false },
-//     { name: "Strawberry", color: "red", readyToEat: false },
-//     { name: "Coconut", color: "brown", readyToEat: false },
-//   ]
-//   // delete if we have fruits
-//   Fruit.deleteMany({})
-// 		// insert data
-// 		.then(() => {
-//             Fruit.create(startFruits)
-//             // return this data as json to view
-//             .then(data => {
-//                 res.json(data)
-//             })
-//             // .catch(err => console.error(err))
-// 		    .catch(console.error)
-//         })
-// })
-
-// GET - Show
-// localhost:3000/fruits/:id <- change with the id being passed in
-// router.get('/:id', (req, res) => {
-//     const playerId = req.params.id
 
 //     Player.findById(playerId)
 //     // populate our User models fields
@@ -231,7 +189,7 @@ router.post('/', (req, res) => {
 //         .populate('comments.author')
 //         // send back some json
 //         .then(player => {
-//             // res.json(fruit)
+//             // res.json(player)
 //             const userId = req.session.userId
 //             const username = req.session.username
 //             res.render('players/show', { player, userId, username })
