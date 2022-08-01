@@ -18,3 +18,6 @@
 # API's, NPM Packages, and RESTful Route Guide
 
 ![APIs](readme_imgs/apis.jpg)
+
+## The API
+- The link to the api is https://www.balldontlie.io/#introduction. The Balldontlie API is where all of the player data is gathered and seeded from.

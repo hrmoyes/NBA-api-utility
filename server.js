@@ -49,7 +49,7 @@ app.use(
 app.use('/nba/', playerRoutes)
 // app.use('/nba/teams', teamRoutes)
 app.use('/users', userRoutes)
-
+app.use('/', teamRoutes)
 // localhost:3000/
 app.get('/', (req, res) => {
 	// res.send('your server is running, better go catch it')
